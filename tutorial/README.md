@@ -22,7 +22,7 @@ The thing what we need todo is basically read the sensor data from the Sensor. w
 
 To start using these pins in our code we need to define them and make them as input pins. In the example code below you can see an example.
 
-[Example file](../codeExamples/ReadMoisture/platMood.io)
+[Example file](https://github.com/svenvs/socialPlant/blob/main/codeExamples/ReadMoisture/plantMood.ino)
 
 ```C++
 #define SOILSENSORA A0 // define the pins
