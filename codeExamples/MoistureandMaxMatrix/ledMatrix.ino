@@ -1,7 +1,7 @@
 unsigned char i;
- unsigned char j;
+unsigned char j;
 
- int Max7219_pinCLK = D5;
+int Max7219_pinCLK = D5;
 int Max7219_pinCS = D8;
 int Max7219_pinDIN = D7;
  
