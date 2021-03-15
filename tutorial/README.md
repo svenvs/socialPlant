@@ -1,8 +1,12 @@
-# Read moisture
+# The tutorial
 
 Ok great! if you are here you have set up your working environment properly and you have a blinking NODE MCU. If not go back :D.
 
-## Wire up the moisture sensor
+## The moisture sensor
+
+Let's start with the moisture sensor. This will be the easiest part where we hook up some wire's and start reading its data.
+
+### Wiring it up
 
 ok its time to wire up our moisture sensor. en start reading the information what comes trough.
 in the table you can see where to connect what Or just look at the image :D
@@ -16,7 +20,7 @@ in the table you can see where to connect what Or just look at the image :D
 
 ![alt text](https://raw.githubusercontent.com/svenvs/socialPlant/main/pictures/MCUandMoistSensor_bb.png "Logo Title Text 1")
 
-## Add the code
+### Add the code
 
 The thing what we need todo is basically read the sensor data from the Sensor. we have 2 ways of doing trough the Analog pin A0 or the Digital pin D1.
 
@@ -64,3 +68,5 @@ void loop() {
   delay(1000); // slow down for a second
 }
 ```
+
+What good is to know the analog pin will give a number from 0 to 1024 where 1024 is completely dry and 0 soaking wett. And the digital pin will give a 1 or 0 where the 1 is dry and the 0 is wett. You can use a screwdriver to change the intensity on the sensor module.
