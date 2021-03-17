@@ -85,6 +85,8 @@ If you have seen your logs inside your monitor. Then you are ready for the next 
 
 Ok we are using a MAX7219 for our DOT Matrix else we had to connect allot more wires. So here again a table and an image how to connect.
 
+![alt text](https://raw.githubusercontent.com/svenvs/socialPlant/main/pictures/MCUandMoistSensorMatrix_bb.png "Sensor wirering diagram including matrix")
+
 | Matrix        | NODEMCU       |
 | ------------- |:-------------:|
 | VCC           | 3V3           |
@@ -321,4 +323,63 @@ You can already try this out your NODEMCU should connect to your wifi. In your S
 
 ### Connect it to your telegram bot
 
-Comming soon done for today
+Ok now that we have a wifi connected plant its time too send some messages. So lets include some libraries to make this possible. 
+
+We will use the folowing libraries:
+
+* [ArduinoJSON V6.17.3](https://arduinojson.org/)
+* [AsyncTelegram V1.1.2](https://github.com/svenvs/socialPlant/blob/main/codeExamples/ReadMoisture/plantMood.ino)
+Arduino Json is used by the AsyncTelegram library
+
+You can install them by going to: Tools > Manage libraries. You should see a screen like this:
+
+![alt text](https://raw.githubusercontent.com/svenvs/socialPlant/main/pictures/asyncTelegram.PNG "search screen arduino")
+
+here you can search for the libraries. 
+
+When they are installed we can start enhancing our code with some cool new functionalities.
+
+First we must include our new library like this:
+
+```C++
+#include "AsyncTelegram.h"
+```
+
+Now instantiate the telegram ```AsyncTelegram``` object
+
+```C++
+AsyncTelegram myBot;
+```
+
+And create a constance with our token, and make sure that we use SSL
+
+```C++
+const char* BotToken = "TOKEN INCLUDING NUMBERS";
+WiFiClientSecure net_ssl;
+```
+
+Now we can update our setup method to make the connection with Telegram. this is the code you need and you need to have wifi so place it after that is done :D. 
+
+```C++
+myBot.setClock("CET-1CEST,M3.5.0,M10.5.0/3");
+
+// Set the Telegram bot properies
+myBot.setUpdateTime(2000);
+myBot.setTelegramToken(BotToken);
+
+Serial.print("\nTest Telegram connection... ");
+myBot.begin() ? Serial.println("OK") : Serial.println("NOK");
+```
+
+And in the loop you can start getting and sending messages like so:
+
+```C++
+TBMessage msg;
+if (myBot.getNewMessage(msg)) {
+    if (msg.text.equalsIgnoreCase("HOWRU")) {
+        myBot.sendMessage(msg, "Superb!");
+    }
+}
+```
+
+Well now you know it all to make your social plant good luck and have fun!
