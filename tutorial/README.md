@@ -323,7 +323,7 @@ You can already try this out your NODEMCU should connect to your wifi. In your S
 
 ### Connect it to your telegram bot
 
-Ok now that we have a wifi connected plant its time too send some messages. So lets include some libraries to make this possible. 
+Ok now that we have a wifi connected plant its time too send some messages. So lets include some libraries to make this possible.
 
 We will use the folowing libraries:
 
@@ -335,7 +335,7 @@ You can install them by going to: Tools > Manage libraries. You should see a scr
 
 ![alt text](https://raw.githubusercontent.com/svenvs/socialPlant/main/pictures/asyncTelegram.PNG "search screen arduino")
 
-here you can search for the libraries. 
+here you can search for the libraries.
 
 When they are installed we can start enhancing our code with some cool new functionalities.
 
@@ -358,7 +358,7 @@ const char* BotToken = "TOKEN INCLUDING NUMBERS";
 WiFiClientSecure net_ssl;
 ```
 
-Now we can update our setup method to make the connection with Telegram. this is the code you need and you need to have wifi so place it after that is done :D. 
+Now we can update our setup method to make the connection with Telegram. this is the code you need and you need to have wifi so place it after that is done :D.
 
 ```C++
 myBot.setClock("CET-1CEST,M3.5.0,M10.5.0/3");
