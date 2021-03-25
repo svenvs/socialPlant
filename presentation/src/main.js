@@ -4,6 +4,9 @@ import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/league.css";
 
 let deck = new Reveal({
-   plugins: [ Markdown ]
+   plugins: [ Markdown ],
+     // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 2.0
 })
 deck.initialize();

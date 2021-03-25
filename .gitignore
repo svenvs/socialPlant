@@ -31,4 +31,5 @@
 *.out
 *.app
 
-/presentaton/node_modules
+presentaton/node_modules
+node_modules
